@@ -1,12 +1,17 @@
 name: Docker Hub CI/CD
 
+# Disabled - Docker Hub credentials not configured
+# Uncomment 'on:' section below to enable
+# on:
+#   push:
+#     branches: [ main ]
+#     tags:
+#       - 'v*'
+#   pull_request:
+#     branches: [ main ]
+
 on:
-  push:
-    branches: [ main ]
-    tags:
-      - 'v*'
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-and-push:
