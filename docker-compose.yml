@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  ai-quiz-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-quiz-generator
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env.local
+    restart: unless-stopped
+    networks:
+      - quiz-network
+
+networks:
+  quiz-network:
+    driver: bridge
